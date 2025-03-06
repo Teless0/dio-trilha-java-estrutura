@@ -8,14 +8,15 @@ public class Fila<T> {
     }
 
     public void enqueue(T object){
-        No novNo = new No(object);
+        No<T>  novNo = new No<T> (object);
         novNo.setRefNo(refNoEntradaFila);
         refNoEntradaFila = novNo;
     }
 
+    @SuppressWarnings("unchecked")
     public T first(){
         if (!this.isEmpty()) {
-            No primeirNo = refNoEntradaFila;
+            No<T>  primeirNo = refNoEntradaFila;
             while (true) {
                 if(primeirNo.getRefNo() != null) {
                     primeirNo = primeirNo.getRefNo();
@@ -30,10 +31,11 @@ public class Fila<T> {
     }
 
 
+    @SuppressWarnings("unchecked")
     public T dequeue(){
         if (!this.isEmpty()) {
-            No primeirNo = refNoEntradaFila;
-            No noAuxiliar = refNoEntradaFila;
+            No<T> primeirNo = refNoEntradaFila;
+            No<T> noAuxiliar = refNoEntradaFila;
             while (true) {
                 if(primeirNo.getRefNo() != null) {
                     noAuxiliar = primeirNo;
@@ -57,7 +59,7 @@ public class Fila<T> {
     public String toString() {
         String stringRetorno = "";
 
-        No noAuxiliar = refNoEntradaFila;
+        No<T> noAuxiliar = refNoEntradaFila;
         
         if(refNoEntradaFila != null) {
 

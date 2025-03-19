@@ -8,7 +8,7 @@ public class Fila<T> {
     }
 
     public void enqueue(T object){
-        No<T>  novNo = new No<T> (object);
+        No<T>  novNo = new No<> (object);
         novNo.setRefNo(refNoEntradaFila);
         refNoEntradaFila = novNo;
     }
